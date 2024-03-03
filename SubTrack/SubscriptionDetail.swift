@@ -7,6 +7,8 @@
 
 import Foundation
 import SwiftUI
+import DeviceActivity
+import FamilyControls
 
 struct SubscriptionDetailView: View {
     let subscription: SubscriptionEntity
@@ -74,7 +76,7 @@ struct SubscriptionDetailView: View {
             .padding(.bottom, 20)
         }
         .sheet(isPresented: $showingLogUsageSheet) {
-                      LogUsageView(subscription: subscription)
+                      //LogUsageView(subscription: subscription)
                   }
     }
   
@@ -147,8 +149,9 @@ struct SubscriptionDetailView: View {
 }
 
 struct LogUsageView: View {
-    let subscription: SubscriptionEntity
+
     @State private var usageDescription: String = ""
+  
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
@@ -169,7 +172,7 @@ struct LogUsageView: View {
 
     func logUsage() {
         // Functionality to log usage with a description and timestamp
-        print("Usage logged for \(subscription.name ?? "Unknown"): \(usageDescription)")
+       // print("Usage logged for \(subscription.name ?? "Unknown"): \(usageDescription)")
         // Here, add logic to save the log to CoreData or your desired storage
         presentationMode.wrappedValue.dismiss()
     }

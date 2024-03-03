@@ -30,7 +30,7 @@ struct SubscriptionsListView: View {
             .navigationTitle("Subscriptions")
             .navigationBarItems(trailing: addButton)
             .sheet(isPresented: $showingAddSubscriptionSheet) {
-                AddSubscriptionView().environment(\.managedObjectContext, self.viewContext)
+                ServiceMenuView(predefinedSubscriptions: predefinedSubscriptions).environment(\.managedObjectContext, self.viewContext)
             }
             .sheet(isPresented: $showingDetailsSheet) {
                 if let subscription = selectedSubscription {
